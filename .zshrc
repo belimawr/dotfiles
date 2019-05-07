@@ -106,7 +106,13 @@ case $_myos in
         alias ll='ls -l'
         export GOROOT=/usr/local/go
         export GOPATH=$HOME/Documents/devel/go
-        export PATH=$PATH:$GOPATH/bin
+        export PATH=$PATH:$GOPATH/bin:$HOME/Documents/devel/bin
+        export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+        KUBE_EDITOR="/Applications/Emacs.app/Contents/MacOS/Emacs"
         ;;
    *) ;;
 esac
+
+alias docker-clean-images='docker images -f "dangling=true" -q | xargs docker rmi'
+
+source ~/Documents/devel/base16-shell/scripts/base16-grayscale-dark.sh
