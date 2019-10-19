@@ -95,8 +95,6 @@ case $_myos in
         alias ll='ls -lh --group-directories-first'
 
         export PATH=$PATH:$HOME/bin
-        export GOROOT=$HOME/Software/go
-        export PATH=$PATH:$GOROOT/bin
         export GOPATH=$HOME/devel/go
         export PATH=$PATH:$GOPATH/bin
         ;;
@@ -115,4 +113,4 @@ esac
 
 alias docker-clean-images='docker images -f "dangling=true" -q | xargs docker rmi'
 
-source ~/Documents/devel/base16-shell/scripts/base16-grayscale-dark.sh
+source ~/.config/base16-shell/scripts/base16-grayscale-dark.sh
