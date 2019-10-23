@@ -47,58 +47,44 @@ set $down k
 set $left j
 set $right semicolon
 
-#This is setup for azerty
-#set $up l
-#set $down k
-#set $left j
-#set $right m
-
-
 
 #####################################################################################################################
 #################                          Single and Dual screen                                   #################
 #####################################################################################################################
 
 
-# setting variables for later use
 # use xrandr and/or arandr to know the names of your monitors
-# use this line to tell which monitor is on the right
-# xrandr --output DVI-I-2 --right-of DVI-I-1 --auto
-#exec --no-startup-id xrandr --output LVDS1 --mode 1366x768 --output DP3 --mode 1920x1080 --right-of LVDS1
-#exec --no-startup-id xrandr --output DVI-I-0 --right-of HDMI-0 --auto
-#exec --no-startup-id xrandr --output DVI-1 --right-of DVI-0 --auto
-#exec --no-startup-id xrandr --output DVI-D-1 --right-of DVI-I-1 --auto
-#exec --no-startup-id xrandr --output HDMI2 --right-of HDMI1 --auto
-
-
-# my current setup
-
-#set $firstMonitor DP3
-#set $secondMonitor LVDS1
-
-#set $firstMonitor DVI-I-0
-#set $secondMonitor HDMI-0
-
-
-#set $firstMonitor DVI-0
-#set $secondMonitor DVI-1
-
-#set $firstMonitor DVI-I-1
-#set $secondMonitor DVI-D-1
-
-set $firstMonitor eDP1
+# setting variables for later use
+set $firstMonitor DP2
 set $secondMonitor DP1
+
+# exec --no-startup-id xrandr --output eDP1 --off \
+#        --output DP1 --mode 3840x2160 --scale 0.5 --right-of DP2 \
+#        --output DP2 --primary --mode 3840x2160 --mode 3840x2160 --pos 0x0 --scale 0.5 --left-of DP1
 
 workspace 1 output $firstMonitor
 workspace 2 output $firstMonitor
 workspace 3 output $firstMonitor
 workspace 4 output $firstMonitor
 workspace 5 output $firstMonitor
-workspace 6 output $secondMonitor
-workspace 7 output $secondMonitor
-workspace 8 output $secondMonitor
-workspace 9 output $secondMonitor
-workspace 10 output $secondMonitor
+workspace 6 output $firstMonitor
+workspace 7 output $firstMonitor
+workspace 8 output $firstMonitor
+workspace 9 output $firstMonitor
+workspace 10 output $firstMonitor
+
+workspace 11 output $secondMonitor
+workspace 12 output $secondMonitor
+workspace 13 output $secondMonitor
+workspace 14 output $secondMonitor
+workspace 15 output $secondMonitor
+workspace 16 output $secondMonitor
+workspace 17 output $secondMonitor
+workspace 18 output $secondMonitor
+workspace 19 output $secondMonitor
+workspace 20 output $secondMonitor
+workspace 21 output $secondMonitor
+workspace 22 output $secondMonitor
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -112,6 +98,19 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
+bindsym $mod+F1 workspace 11
+bindsym $mod+F2 workspace 12
+bindsym $mod+F3 workspace 13
+bindsym $mod+F4 workspace 14
+bindsym $mod+F5 workspace 15
+bindsym $mod+F6 workspace 16
+bindsym $mod+F7 workspace 17
+bindsym $mod+F8 workspace 18
+bindsym $mod+F9 workspace 19
+bindsym $mod+F10 workspace 20
+bindsym $mod+F11 workspace 21
+bindsym $mod+F12 workspace 22
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1; workspace 1
 bindsym $mod+Shift+2 move container to workspace 2; workspace 2
@@ -124,6 +123,18 @@ bindsym $mod+Shift+8 move container to workspace 8; workspace 8
 bindsym $mod+Shift+9 move container to workspace 9; workspace 9
 bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 
+bindsym $mod+Shift+F1 move container to workspace 11; workspace 11
+bindsym $mod+Shift+F2 move container to workspace 12; workspace 12
+bindsym $mod+Shift+F3 move container to workspace 13; workspace 13
+bindsym $mod+Shift+F4 move container to workspace 14; workspace 14
+bindsym $mod+Shift+F5 move container to workspace 15; workspace 15
+bindsym $mod+Shift+F6 move container to workspace 16; workspace 16
+bindsym $mod+Shift+F7 move container to workspace 17; workspace 17
+bindsym $mod+Shift+F8 move container to workspace 18; workspace 18
+bindsym $mod+Shift+F9 move container to workspace 19; workspace 19
+bindsym $mod+Shift+F10 move container to workspace 20; workspace 20
+bindsym $mod+Shift+F11 move container to workspace 21; workspace 21
+bindsym $mod+Shift+F12 move container to workspace 22; workspace 22
 
 
 #####################################################################################################################
@@ -243,9 +254,9 @@ bindsym $mod+Shift+Right move right
 
 # next/previous workspace
 
-bindsym Mod1+Tab workspace next
-bindsym Mod1+Shift+Tab workspace prev
-bindsym $mod+Tab workspace back_and_forth
+# bindsym Mod1+Tab workspace next
+# bindsym Mod1+Shift+Tab workspace prev
+# bindsym $mod+Tab workspace back_and_forth
 
 #navigate workspaces next / previous
 bindsym Mod1+Ctrl+Right workspace next
@@ -554,7 +565,7 @@ bindsym control+mod1+g exec --no-startup-id chromium;focus
 
 #workspace 8 related
 for_window [class="Thunar"] focus
-bindsym $mod+F8 exec --no-startup-id thunar;focus
+#bindsym $mod+F8 exec --no-startup-id thunar;focus
 bindsym $mod+Shift+Return exec --no-startup-id thunar;focus
 #bindsym $mod+Shift+KP_Enter exec --no-startup-id thunar;focus
 #bindsym control+mod1+b exec --no-startup-id thunar;focus
@@ -564,7 +575,7 @@ bindsym $mod+Shift+Return exec --no-startup-id thunar;focus
 #bindsym control+mod1+e exec --no-startup-id geary;focus
 
 #workspace 10 related
-bindsym $mod+F10 exec --no-startup-id spotify;focus
+#bindsym $mod+F10 exec --no-startup-id spotify;focus
 bindsym control+mod1+s exec --no-startup-id spotify;focus
 
 
@@ -714,8 +725,8 @@ bindsym XF86AudioStop exec --no-startup-id playerctl stop
 #################                          xbacklight                                               #################
 #####################################################################################################################
 
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 # decrease screen brightness
 
 
 
@@ -1071,6 +1082,10 @@ client.urgent           #d42121 #d42121 #f7f7f7 #d42121
 #exec --no-startup-id setxkbmap be
 #exec --no-startup-id setxkbmap us
 exec --no-startup-id setxkbmap -option ctrl:nocaps
+exec --no-startup-id xinput --set-prop 11 168 3.000000, 0.000000, 0.000000, 0.000000, 3.000000, 0.000000, 0.000000, 0.000000, 1.000000
+# I don't think this one works:
+exec --no-startup-id xset m 1 100
+
 
 
 
